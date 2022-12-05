@@ -11,7 +11,8 @@ require('dotenv').config();
 
 app.use(express.json());
 
-app.use(express.static('public'));
+//Throuh this command we can connect to our frontend application
+app.use(express.static("public"));
 
 mongoose.connect(process.env.MONGO_URI, (error) => {
   if (error) {
@@ -21,9 +22,9 @@ mongoose.connect(process.env.MONGO_URI, (error) => {
   }
 })
 
-app.get('/', (req, res) => {
-  return res.send("Endpoints are here!");
-})
+// app.get('/', (req, res) => {
+//   return res.send("Endpoints are here!");
+// })
 
 app.use('/api/v1/users', userRoutes);
 app.use('api/v1/posts', postRoute);
