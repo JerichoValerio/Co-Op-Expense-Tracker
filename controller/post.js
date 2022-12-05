@@ -11,10 +11,13 @@ const createPost = async (request, response) => {
     if (token) {
         const decodedValue = jwt.decode(token, { complete: true });
 
-        const findUser = await User.findOne({ name: decodedValue?.payload?.name });
+        const findUser = await User.findOne({ email: decodedValue?.payload?.email });
 
         if (findUser) {
             const newPost = new Post({
+                title: data.title,
+                subTitle: data.subTitle,
+                description: data.description,
                 user: findUser._id
             })
 
