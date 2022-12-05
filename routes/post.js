@@ -3,19 +3,14 @@ const router = express.Router();
 
 
 // Here we are using destructuring
-const { registerUser, loginUser, getAllUsers } = require("../controller/user");
+const { createPost, getAllPosts } = require("../controller/post");
 
 // router.get("/", userController.getAllUsers)
 
-router.get("/", getAllUsers);
+router.get("/", getAllPosts);
 
+router.post("/create", createPost)
 
-
-// Registering
-router.post("/register", registerUser)
-
-// // Login
-router.post("/login", loginUser)
 
 // router.get("/:id", userController.getUserById)
 

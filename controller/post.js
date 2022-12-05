@@ -8,26 +8,23 @@ const createPost = async (request, response) => {
     // The ? mark checks for optional
     const token = request.headers?.authorization.split(" ")[1];
 
-    if (token) {        
-        const decodedValue = jwt.decode(token, { complete : true} );
+    if (token) {
+        const decodedValue = jwt.decode(token, { complete: true });
 
-        const findUser = await  User.findOne({ name: decodedValue?.payload?.name});
+        const findUser = await User.findOne({ name: decodedValue?.payload?.name });
 
         if (findUser) {
             const newPost = new Post({
-                title: data.title,
-                subTitle: data.subTitle,
-                description: data.description,
                 user: findUser._id
             })
 
-          try {
-            const output = await newPost.save();
-            return response.status(201).json({
-                message: "Post Succesfully Created",
-                data: output
-            })
-          }  catch (error) {
+            try {
+                const output = await newPost.save();
+                return response.status(201).json({
+                    message: "Post Succesfully Created",
+                    data: output
+                })
+            } catch (error) {
                 return response.status(500).json({
                     message: "There was an error",
                     error
@@ -38,7 +35,7 @@ const createPost = async (request, response) => {
                 message: "User was not Found!"
             })
         }
-        
+
     } else {
         return response.status(401).json({
             message: "Token required!",
