@@ -4,6 +4,8 @@ const app = express();
 
 const PORT = 4000;
 const mongoose = require('mongoose');
+const userRoutes = require('./routes/user');
+const postRoute = require('./routes/post')
 
 require('dotenv').config();
 
@@ -22,6 +24,9 @@ mongoose.connect(process.env.MONGO_URI, (error) => {
 app.get('/', (req, res) => {
   return res.send("Endpoints are here!");
 })
+
+app.use('/api/v1/users', userRoutes);
+app.use('api/v1/posts', postRoute);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
