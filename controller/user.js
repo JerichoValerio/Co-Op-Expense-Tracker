@@ -4,102 +4,102 @@ const jwt = require("jsonwebtoken"); // This Library will help us give and verif
 
 
 const registerUser = async (request, response) => {
-    const data = request.body;
+  const data = request.body;
 
-    // We are hashing/encrypting password based the data.password string and the salt value 10 which is the utmost encryption
-    const encryptPassword = await bcrypt.hash(data.password, 10);
+  // We are hashing/encrypting password based the data.password string and the salt value 10 which is the utmost encryption
+  const encryptPassword = await bcrypt.hash(data.password, 10);
 
-    const newUser = new User({
-        name: data.name,
-        password: encryptPassword
+  const newUser = new User({
+    name: data.name,
+    password: encryptPassword
+  })
+
+  try {
+    const output = await newUser.save();
+    return response.status(201).json({
+      message: "Succesfully Registered User",
+      data: output
     })
-
-    try {
-        const output = await newUser.save();
-        return response.status(201).json({
-            message: "Succesfully Registered User",
-            data: output
-        })
-    } catch (error) {
-        return response.status(500).json({
-            message: "There was an error",
-            error
-        })
-    }
+  } catch (error) {
+    return response.status(500).json({
+      message: "There was an error",
+      error
+    })
+  }
 
 }
 
 const loginUser = async (request, response) => {
-    const data = request.body;
+  const data = request.body;
 
-    let foundUser = await User.findOne({ name: data.name });
+  let foundUser = await User.findOne({ name: data.name });
 
-    if (foundUser) {
-        // Then we will check for password
+  if (foundUser) {
+    // Then we will check for password
 
-        // This will be either true or false
-        const matchPassword = await bcrypt.compare(data.password, foundUser.password);
+    // This will be either true or false
+    const matchPassword = await bcrypt.compare(data.password, foundUser.password);
 
-        if (matchPassword) {
+    if (matchPassword) {
 
-            // We are trying to create an access token based on which the user will be able to interact with the website
-            const accessToken = jwt.sign(
-                {
-                    name: foundUser.name
-                },
-                process.env.SECRET_KEY
-            )
+      // We are trying to create an access token based on which the user will be able to interact with the website
+      const accessToken = jwt.sign(
+        {
+          name: foundUser.name
+        },
+        process.env.SECRET_KEY
+      )
 
-            return response.status(200).json({
-                message: "User Succesfully Logged In",
-                accessToken
-            })
-        } else {
-            // User password is incorrect
-            return response.status(401).json({
-                message: "User Password is incorrect",
-                data: null
-            })
-        }
-
+      return response.status(200).json({
+        message: "User Succesfully Logged In",
+        accessToken
+      })
     } else {
-
-        // If user doesn't exist
-        return response.status(404).json({
-            message: "User does not exist, please register",
-            data: null
-        })
+      // User password is incorrect
+      return response.status(401).json({
+        message: "User Password is incorrect",
+        data: null
+      })
     }
+
+  } else {
+
+    // If user doesn't exist
+    return response.status(404).json({
+      message: "User does not exist, please register",
+      data: null
+    })
+  }
 
 
 }
 
 const getAllUsers = async (request, response) => {
-    try {
-        const data = await User.find();
+  try {
+    const data = await User.find();
 
-        const filteredData = data.map((user) => {
-            return {
-                name: user.name,                
-                id: user._id,
-                createdAt: user.createdAt
-            }
-        })
+    const filteredData = data.map((user) => {
+      return {
+        name: user.name,
+        id: user._id,
+        createdAt: user.createdAt
+      }
+    })
 
-        return response.status(200).json({
-            message: "Users found Succesfully",
-            filteredData
-        })
-    } catch (error) {
-        return response.status(500).json({
-            message: "There was an error",
-            error
-        })
-    }
+    return response.status(200).json({
+      message: "Users found Succesfully",
+      filteredData
+    })
+  } catch (error) {
+    return response.status(500).json({
+      message: "There was an error",
+      error
+    })
+  }
 }
 
 module.exports = {
-    registerUser,
-    loginUser,
-    getAllUsers
+  registerUser,
+  loginUser,
+  getAllUsers
 }
