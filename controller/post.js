@@ -24,7 +24,7 @@ const createPost = async (request, response) => {
           try {
             const output = await newPost.save();
             return response.status(201).json({
-                message: "Post Succesfully Created",
+                message: "Post Successfully Created",
                 data: output
             })
           }  catch (error) {
@@ -55,7 +55,7 @@ const getAllPosts = async (request, response) => {
         });
 
         return response.status(200).json({
-            message: "Posts found Succesfully",
+            message: "Posts found Successfully",
             data
         })
     } catch (error) {
