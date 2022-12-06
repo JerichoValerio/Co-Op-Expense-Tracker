@@ -34,7 +34,7 @@ const registerUser = async (request, response) => {
 const loginUser = async (request, response) => {
   const data = request.body;
 
-  let foundUser = await User.findOne({  email: data.email });
+  let foundUser = await User.findOne({ email: data.email });
 
   if (foundUser) {
     // Then we will check for password

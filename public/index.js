@@ -18,6 +18,7 @@ const submitUserForm = async (event) => {
 
     // We don't want to page to refresh because we are not using actions here!
     event.preventDefault();
+    console.log(user);
     // We will call the API for our own backend Here!
 
     try {
