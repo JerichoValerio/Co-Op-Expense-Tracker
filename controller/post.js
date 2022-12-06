@@ -7,7 +7,7 @@ const createPost = async (request, response) => {
     console.log(request.headers);
 
     // The ? mark checks for optional
-    const token = request.headers?.authorization.split(" ")[1];
+    const token = request.headers?.authorization?.split(" ")[1];
 
     if (token) {        
         const decodedValue = jwt.decode(token, { complete : true} );

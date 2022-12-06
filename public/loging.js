@@ -2,27 +2,23 @@
 let user = {};
 let baseUrl = "/api/v1";
 
-const setName = (event) => {
-    user.name = event.target.value;
-}
 
-const setEmail = (event) => {
+const setLoginEmail = (event) => {
     user.email = event.target.value;
 }
 
-const setPassword = (event) => {
+const setLoginPassword = (event) => {
     user.password = event.target.value;
 }
 
-const submitUserForm = async (event) => {
+const submitUserLoginForm = async (event) => {
 
     // We don't want to page to refresh because we are not using actions here!
     event.preventDefault();
-    console.log(user);
     // We will call the API for our own backend Here!
 
     try {
-       const response = await fetch(`${baseUrl}/users/register`, {
+       const response = await fetch(`${baseUrl}/users/login`, {
             method: "post",
             body: JSON.stringify(user),
             headers: {
@@ -30,9 +26,14 @@ const submitUserForm = async (event) => {
             },
         })
 
+        const finalIncomingResponse = await response.json();
+
         // We have to fix this 
-        if (response) {
-            window.location.href = "/login.html";
+        if (finalIncomingResponse.accessToken) {
+            
+            //window.location.href = "/home.html";
+        } else {
+            alert(finalIncomingResponse.message);
         }
     } catch(error) {
         console.log(error);

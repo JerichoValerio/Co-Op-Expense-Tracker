@@ -7,9 +7,9 @@ const { createPost, getAllPosts } = require("../controller/post");
 
 // router.get("/", userController.getAllUsers)
 
-router.get("/", getAllPosts);
+router.get("/", getAllPosts); //API
 
-router.post("/create", createPost)
+router.post("/create", createPost) //API
 
 
 // router.get("/:id", userController.getUserById)
