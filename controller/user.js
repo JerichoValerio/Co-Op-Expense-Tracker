@@ -11,6 +11,7 @@ const registerUser = async (request, response) => {
 
   const newUser = new User({
     name: data.name,
+    email: data.email,
     password: encryptPassword
   })
 
@@ -32,7 +33,7 @@ const registerUser = async (request, response) => {
 const loginUser = async (request, response) => {
   const data = request.body;
 
-  let foundUser = await User.findOne({ name: data.name });
+  let foundUser = await User.findOne({  email: data.email });
 
   if (foundUser) {
     // Then we will check for password
@@ -45,6 +46,7 @@ const loginUser = async (request, response) => {
       // We are trying to create an access token based on which the user will be able to interact with the website
       const accessToken = jwt.sign(
         {
+          email: foundUser.email,
           name: foundUser.name
         },
         process.env.SECRET_KEY
@@ -81,6 +83,7 @@ const getAllUsers = async (request, response) => {
     const filteredData = data.map((user) => {
       return {
         name: user.name,
+        email: user.email,
         id: user._id,
         createdAt: user.createdAt
       }
