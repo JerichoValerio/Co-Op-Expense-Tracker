@@ -1,6 +1,7 @@
 const User = require("../model/user");
 const bcrypt = require("bcryptjs"); // This library/package will be used to encrypt the password
 const jwt = require("jsonwebtoken"); // This Library will help us give and verify access tokens
+const { db } = require("../model/user");
 
 
 const registerUser = async (request, response) => {
@@ -101,8 +102,31 @@ const getAllUsers = async (request, response) => {
   }
 }
 
+const deleteUser = async (request, response) => {  
+  
+  try {
+      const id = request.params.id;
+      await User.findByIdAndDelete(id);
+
+      return response.status(200).json({
+          message: "User Deleted Succesfully",
+          
+      })
+
+  } catch (error) {
+      return response.status(500).json({
+          message: "There was an error",
+          error
+      })
+  }
+
+ 
+}
+
+
 module.exports = {
   registerUser,
   loginUser,
-  getAllUsers
+  getAllUsers,
+  deleteUser
 }
