@@ -6,7 +6,7 @@ const PostSchema = mongoose.Schema({
     required: true
   },
   amount: {
-    type: float,
+    type: Number,
     required: true
   },
   user: {
