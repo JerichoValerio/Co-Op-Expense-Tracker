@@ -1,7 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+
 body {
-  background-image: url("https://static.vecteezy.com/system/resources/previews/002/833/005/non_2x/dark-blue-green-background-with-bent-lines-illustration-in-abstract-style-with-gradient-curved-template-for-your-ui-design-vector.jpg");
+  background-image: url("https://static.vecteezy.com/system/resources/previews/010/356/027/non_2x/futuristic-line-abstract-background-for-web-desktop-mobile-design-ui-ux-and-more-free-vector.jpg");
 }
+
+
 * {
 	margin: 0;
 	padding: 0;
@@ -23,14 +27,11 @@ li {
 	max-width: 650px;
 	min-width: 350px;
 	width: 30vw;
-	/* background-color: coral; */
-	/* padding-bottom: 15px; */
 
 	height: 90vh;
 
 	display: flex;
 	flex-direction: column;
-	/* justify-content: space-between; */
 }
 
 .app__header {
@@ -39,7 +40,7 @@ li {
 	align-items: center;
 	justify-content: center;
 	padding: 45px 0px;
-  background-color: #00ff009d;
+  background-color: #00ff00b4;
 
 	border-bottom: 1px solid lightgrey;
 }
@@ -48,7 +49,7 @@ li {
 	flex: 0.95;
 	display: flex;
 	flex-direction: column;
-	/* justify-content: space-between; */
+  /* justify-content: space-between;  */
 	padding: 45px 0px;
 	overflow-y: auto;
   background-color: #00000085;
@@ -75,7 +76,7 @@ li {
 .inc-exp {
 	margin-bottom: 30px;
 	display: flex;
-	background-color: rgba(255, 255, 255, 0.644);
+	background-color:rgba(124, 104, 238, 0.459);;
 	justify-content: center;
 	padding: 20px 10px;
 
