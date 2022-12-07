@@ -1,7 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+
 body {
-  background-image: url("https://static.vecteezy.com/system/resources/previews/002/833/005/non_2x/dark-blue-green-background-with-bent-lines-illustration-in-abstract-style-with-gradient-curved-template-for-your-ui-design-vector.jpg");
+  background-image: url("https://static.vecteezy.com/system/resources/previews/010/821/428/original/liquid-flow-purple-pink-3d-neon-lava-lamp-geometric-background-for-banner-card-ui-design-or-wallpaper-gradient-mesh-bubble-in-the-shape-of-a-wave-drop-fluid-colorful-abstract-shapes-free-vector.jpg");
 }
+
+
 * {
 	margin: 0;
 	padding: 0;
