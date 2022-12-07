@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="theme-color" content="#000000">
+  <link href="../src/Home.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="app__header">
+    <h2>COSTREME</h2>
+  </div>
+  <div class="app__calculator">
+    <div class="balance">
+      <h4>Your Balance</h4>
+      <h1 class="balance__amount">1800.00 CAD</h1>
+    </div>
+    <div class="inc-exp">
+      <div class="inc__container">
+        <h4>Income</h4>
+        <p class="inc__money">+169.00 CAD</p>
+      </div>
+      <div class="exp__container">
+        <h4>Expense</h4>
+        <p class="exp__money">-3000.00 CAD</p>
+      </div>
+    </div>
+    <div class="transaction">
+      <h3>History</h3>
+      <ul class="list__container">
+        <div class="transaction">
+          <li class="plus">salary<span>+CAD 10000</span><button class="delete-btn">X</button></li>
+        </div>
+        <div class="transaction">
+          <li class="minus">shopping<span>-CAD 3000</span><button class="delete-btn">X</button></li>
+        </div>
+        <div class="transaction">
+          <li class="plus">gift<span>+CAD 2000</span><button class="delete-btn">X</button></li>
+        </div>
+      </ul>
+    </div>
+    <div class="add-trans">
+      <h3>Add New Transaction</h3>
+      <form action="">
+        <div class="form-control"><label for="text">Text</label><input type="text" placeholder="Enter the detail..."
+            required="" value=""></div>
+        <div class="form-control"><label for="amount">Amount<br>(negative-expense, positive-income)</label><input
+            type="number" placeholder="Enter the amount" required="" value="0"></div><button type="submit"
+          class="add-trans__btn">Add Transaction</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
