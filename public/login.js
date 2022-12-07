@@ -31,7 +31,7 @@ const submitUserLoginForm = async (event) => {
         // We have to fix this 
         if (finalIncomingResponse.accessToken) {
             
-            //window.location.href = "/home.html";
+            window.location.href = "/main/home.html";
         } else {
             alert(finalIncomingResponse.message);
         }
