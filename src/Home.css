@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+body {
+  background-image: url("https://static.vecteezy.com/system/resources/previews/002/833/005/non_2x/dark-blue-green-background-with-bent-lines-illustration-in-abstract-style-with-gradient-curved-template-for-your-ui-design-vector.jpg");
+}
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Roboto;
+}
+
+
+li {
+	list-style: none;
+}
+
+.app {
+	display: grid;
+	place-items: center;
+	height: 100vh;
+}
+
+.app__container {
+	max-width: 650px;
+	min-width: 350px;
+	width: 30vw;
+	/* background-color: coral; */
+	/* padding-bottom: 15px; */
+
+	height: 90vh;
+
+	display: flex;
+	flex-direction: column;
+	/* justify-content: space-between; */
+}
+
+.app__header {
+	flex: 0.05;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 45px 0px;
+  background-color: #00ff009d;
+
+	border-bottom: 1px solid lightgrey;
+}
+
+.app__calculator {
+	flex: 0.95;
+	display: flex;
+	flex-direction: column;
+	/* justify-content: space-between; */
+	padding: 45px 0px;
+	overflow-y: auto;
+  background-color: #00000085;
+  color: honeydew;
+}
+
+.app__calculator::-webkit-scrollbar {
+	display: none;
+}
+
+/* ********** Balance *********** */
+.balance {
+	padding-bottom: 30px;
+	text-transform: uppercase;
+}
+
+.balance > h4 {
+	font-weight: bold;
+	letter-spacing: 1.5px;
+}
+
+/************ Income expense ***********/
+
+.inc-exp {
+	margin-bottom: 30px;
+	display: flex;
+	background-color: rgba(255, 255, 255, 0.644);
+	justify-content: center;
+	padding: 20px 10px;
+
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+		rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+	text-transform: uppercase;
+}
+
+.inc__container {
+	flex: 0.5;
+	border-right: 1px solid rgb(211, 211, 211);
+	text-align: center;
+}
+
+.exp__container {
+	flex: 0.5;
+	text-align: center;
+}
+
+.inc-exp h4 {
+	margin-bottom: 5px;
+}
+
+.inc__money {
+	color: limegreen;
+	font-weight: bold;
+}
+
+.exp__money {
+	color: red;
+	font-weight: bold;
+}
+
+/* ********* transaction list ******** */
+
+.transaction {
+	display: flex;
+	flex-direction: column;
+}
+.transaction > h3 {
+	padding-bottom: 5px;
+	margin-bottom: 15px;
+	border-bottom: 1px solid rgba(211, 211, 211, 0.87);
+}
+
+.list__container {
+	display: flex;
+	flex-direction: column;
+	max-height: 20vh;
+	overflow-y: auto;
+	margin-bottom: 15px;
+}
+
+.list__container::-webkit-scrollbar {
+	width: 10px;
+	padding-left: 5px;
+}
+.list__container::-webkit-scrollbar-thumb {
+	border-radius: 100px;
+	background-color: mediumslateblue;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+		rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+/* ********* transaction ******** */
+
+.transaction > li {
+	display: flex;
+	justify-content: space-between;
+	padding: 5px 10px;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+		rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+	margin-bottom: 10px;
+	background-color: rgba(255, 255, 255, 0.301);
+	margin-right: 5px;
+	margin-left: 20px;
+	position: relative;
+}
+
+.minus {
+	border-left: 5px solid red;
+}
+
+.plus {
+	border-left: 5px solid limegreen;
+}
+.delete-btn {
+	position: absolute;
+	top: 50%;
+	left: 0px;
+	transform: translate(-130%, -50%);
+	/* tinkered value above */
+
+	border: none;
+	padding: 5px 5px;
+	background-color: crimson;
+	color: rgba(255, 255, 255, 0.432);
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.delete-btn:focus {
+	outline: none;
+}
+
+.transaction > li:hover .delete-btn {
+	opacity: 1;
+}
+
+/* *********** add transaction ********* */
+
+.add-trans {
+	display: flex;
+	flex-direction: column;
+}
+
+.add-trans > h3 {
+	padding-bottom: 5px;
+	margin-bottom: 15px;
+	border-bottom: 1px solid lightgray;
+}
+
+.add-trans > form {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-control {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+.form-control > input {
+	margin-top: 10px;
+	padding: 10px 20px;
+	border: 1px solid lightgray;
+}
+
+.form-control > input:focus {
+	outline: none;
+}
+
+.add-trans__btn {
+	margin-top: 15px;
+	padding: 15px 20px;
+	text-align: center;
+	background-color: rgba(124, 104, 238, 0.459);
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	border: none;
+}
