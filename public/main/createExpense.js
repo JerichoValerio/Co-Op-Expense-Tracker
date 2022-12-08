@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 const newExpense = {};
 
 const typeOfExpense = (event) => {
@@ -21,6 +23,10 @@ const submitExpense = async (event) => {
         'Authorization': `Bearer ${JSON.parse(localStorage.getItem('acess-token'))}`
       }
     })
+
+    window.location.href = "/main/expenses.html";
+
+
   } catch (error) {
     console.log(error);
   }
