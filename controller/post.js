@@ -51,7 +51,7 @@ const createPost = async (request, response) => {
 const getAllPosts = async (request, response) => {
     try {
         const data = await Post.find().populate({
-            path: "user"
+            path: "user"       
         });
 
         return response.status(200).json({
@@ -66,8 +66,29 @@ const getAllPosts = async (request, response) => {
     }
 }
 
+const deletePost = async (request, response) => {
+
+    try {
+        const id = request.params.id;
+        await Post.findByIdAndDelete(id);
+
+        return response.status(200).json({
+            message: "Post Deleted Succesfully",
+
+        })
+
+    } catch (error) {
+        return response.status(500).json({
+            message: "There was an error",
+            error
+        })
+    }
+
+
+}
 
 module.exports = {
     createPost,
-    getAllPosts
+    getAllPosts,
+    deletePost
 }
