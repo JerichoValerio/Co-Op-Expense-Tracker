@@ -6,7 +6,7 @@ let baseUrl = "/api/v1";
     let accessToken = JSON.parse(localStorage.getItem("acess-token"));
 
     if (accessToken) {
-        window.location.href = "/home.html";
+        window.location.href = "/main/home.html";
     }
 })();
 
@@ -42,7 +42,7 @@ const submitUserLoginForm = async (event) => {
 
             // This is for storing access token in the browser storage
             localStorage.setItem("acess-token", JSON.stringify(finalIncomingResponse.accessToken));
-            window.location.href = "/home.html";
+            window.location.href = "/main/home.html";
         } else {
             alert(finalIncomingResponse.message);
         }

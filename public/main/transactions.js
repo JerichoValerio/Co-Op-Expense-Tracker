@@ -1,9 +1,6 @@
 const newTransaction = {};
 let baseUrl = "/api/v1";
 
-// IIFE --> Immediately Invoked Functions
-// https://developer.mozilla.org/en-US/docs/Glossary/IIFE#:~:text=An%20IIFE%20(Immediately%20Invoked%20Function,Ben%20Alman%20in%20his%20blog.
-
 const transactionName = (event) => {
   newTransaction.expenseOrIncome = event.target.value;
 }
@@ -32,3 +29,4 @@ const submitTransaction = async (event) => {
     console.log(error);
   }
 }
+

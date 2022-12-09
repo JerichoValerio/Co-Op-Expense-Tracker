@@ -6,7 +6,7 @@ let baseUrl = "/api/v1";
     let accessToken = JSON.parse(localStorage.getItem("acess-token"));
 
     if (accessToken) {
-        window.location.href = "/home.html";
+        window.location.href = "/main/home.html";
     }
 })();
 
@@ -40,7 +40,7 @@ const submitUserForm = async (event) => {
 
         // We have to fix this 
         if (response) {
-            window.location.href = "/login.html";
+            window.location.href = "login.html";
         }
     } catch (error) {
         console.log(error);
