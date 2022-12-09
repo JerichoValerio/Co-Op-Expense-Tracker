@@ -2,7 +2,7 @@
 
 
 body {
-  background-image: url("https://static.vecteezy.com/system/resources/previews/010/527/184/original/liquid-flow-purple-purple-3d-neon-lava-lamp-geometric-background-for-banner-card-ui-design-or-wallpaper-gradient-mesh-bubble-in-the-shape-of-a-wave-drop-fluid-colorful-3d-tubes-free-vector.jpg");
+	background-image: url("https://static.vecteezy.com/system/resources/previews/010/527/184/original/liquid-flow-purple-purple-3d-neon-lava-lamp-geometric-background-for-banner-card-ui-design-or-wallpaper-gradient-mesh-bubble-in-the-shape-of-a-wave-drop-fluid-colorful-3d-tubes-free-vector.jpg");
 }
 
 
@@ -40,7 +40,7 @@ li {
 	align-items: center;
 	justify-content: center;
 	padding: 45px 0px;
-  background-color: #00ff00c5;
+	background-color: #00ff00c5;
 
 	border-bottom: 1px solid lightgrey;
 }
@@ -49,11 +49,11 @@ li {
 	flex: 0.95;
 	display: flex;
 	flex-direction: column;
-  /* justify-content: space-between;  */
+	/* justify-content: space-between;  */
 	padding: 45px 0px;
 	overflow-y: auto;
-  background-color: #00000085;
-  color: honeydew;
+	background-color: #00000085;
+	color: honeydew;
 }
 
 .app__calculator::-webkit-scrollbar {
@@ -66,7 +66,7 @@ li {
 	text-transform: uppercase;
 }
 
-.balance > h4 {
+.balance>h4 {
 	font-weight: bold;
 	letter-spacing: 1.5px;
 }
@@ -76,7 +76,8 @@ li {
 .inc-exp {
 	margin-bottom: 30px;
 	display: flex;
-	background-color:rgba(124, 104, 238, 0.459);;
+	background-color: rgba(124, 104, 238, 0.459);
+	;
 	justify-content: center;
 	padding: 20px 10px;
 
@@ -116,7 +117,8 @@ li {
 	display: flex;
 	flex-direction: column;
 }
-.transaction > h3 {
+
+.transaction>h3 {
 	padding-bottom: 5px;
 	margin-bottom: 15px;
 	border-bottom: 1px solid rgba(211, 211, 211, 0.87);
@@ -134,15 +136,17 @@ li {
 	width: 10px;
 	padding-left: 5px;
 }
+
 .list__container::-webkit-scrollbar-thumb {
 	border-radius: 100px;
 	background-color: mediumslateblue;
 	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
 		rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
+
 /* ********* transaction ******** */
 
-.transaction > li {
+.transaction>li {
 	display: flex;
 	justify-content: space-between;
 	padding: 5px 10px;
@@ -162,6 +166,7 @@ li {
 .plus {
 	border-left: 5px solid limegreen;
 }
+
 .delete-btn {
 	position: absolute;
 	top: 50%;
@@ -181,7 +186,7 @@ li {
 	outline: none;
 }
 
-.transaction > li:hover .delete-btn {
+.transaction>li:hover .delete-btn {
 	opacity: 1;
 }
 
@@ -192,13 +197,13 @@ li {
 	flex-direction: column;
 }
 
-.add-trans > h3 {
+.add-trans>h3 {
 	padding-bottom: 5px;
 	margin-bottom: 15px;
 	border-bottom: 1px solid lightgray;
 }
 
-.add-trans > form {
+.add-trans>form {
 	display: flex;
 	flex-direction: column;
 }
@@ -210,13 +215,13 @@ li {
 	font-weight: bold;
 }
 
-.form-control > input {
+.form-control>input {
 	margin-top: 10px;
 	padding: 10px 20px;
 	border: 1px solid lightgray;
 }
 
-.form-control > input:focus {
+.form-control>input:focus {
 	outline: none;
 }
 

@@ -102,26 +102,28 @@ const getAllUsers = async (request, response) => {
   }
 }
 
-const deleteUser = async (request, response) => {  
-  
-  try {
-      const id = request.params.id;
-      await User.findByIdAndDelete(id);
+const deleteUser = async (request, response) => {
 
-      return response.status(200).json({
-          message: "User Deleted Succesfully",
-          
-      })
+  try {
+    const id = request.params.id;
+    await User.findByIdAndDelete(id);
+
+    return response.status(200).json({
+      message: "User Deleted Succesfully",
+
+    })
 
   } catch (error) {
-      return response.status(500).json({
-          message: "There was an error",
-          error
-      })
+    return response.status(500).json({
+      message: "There was an error",
+      error
+    })
   }
 
- 
+
 }
+
+
 
 
 module.exports = {

@@ -46,15 +46,21 @@
     </div>
     <div class="add-trans">
       <h3>Add New Transaction</h3>
-      <form action="">
+      <form onsubmit="submitExpense(event)">
         <div class="form-control"><label for="text">Text</label><input type="text" placeholder="Enter the detail..."
-            required="" value=""></div>
+            required="" value="" onchange="typeOfExpense(event)"></div>
         <div class="form-control"><label for="amount">Amount<br>(negative-expense, positive-income)</label><input
-            type="number" placeholder="Enter the amount" required="" value="0"></div><button type="submit"
-          class="add-trans__btn">Add Transaction</button>
+            type="number" placeholder="Enter the amount" required="" value="0" onchange="amount(event)"></div>
+        <button type="submit" class="add-trans__btn">Add Transaction</button>
       </form>
     </div>
   </div>
+  <footer>
+    <a href="expenses.html"><img
+        src="https://png.pngtree.com/element_our/20200610/ourmid/pngtree-bill-flat-expense-list-image_2237811.jpg"
+        alt="/pictures/expense.jpg" width="50px" height="50px" /></a>
+
+  </footer>
 </body>
 
 </html>

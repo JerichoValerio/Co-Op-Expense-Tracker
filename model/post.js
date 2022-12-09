@@ -1,15 +1,13 @@
 const mongoose = require("mongoose");
 
 const PostSchema = mongoose.Schema({
-  title: {
+  typeOfExpense: {
     type: String,
     required: true
   },
-  subTitle: {
-    type: String,
-  },
-  description: {
-    type: String
+  amount: {
+    type: Number,
+    required: true
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,

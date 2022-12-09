@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login to your COSTREME account</title>
-  <script src="index.js"> </script>
+  <script src="login.js"> </script>
   <link rel="stylesheet" href="../src/login.css">
 </head>
 
@@ -16,23 +16,21 @@
     <div class="title">Account Login</div>
     <div class="subtitle">Welcome!</div>
 
-    <form action="/register" method="POST">
-      <div class="input-container ic1">
-        <input id="name" class="input" type="text" placeholder=" " />
-        <div class="cut"></div>
-        <label for="name" class="placeholder">Name</label>
-      </div>
+    <form onsubmit="submitUserLoginForm(event)">
+      
       <div class="input-container ic2">
-        <input id="email" class="input" type="text" placeholder=" " />
+        <input id="email" class="input" type="text" placeholder=" " onkeyup="setLoginEmail(event)"/>
         <div class="cut cut-short"></div>
         <label for="email" class="placeholder">Email *
       </div>
       <div class="input-container ic2">
-        <input id="contactnumber" class="input" type="text" placeholder=" " />
+        <input id="contactnumber" class="input" type="text" placeholder=" " onkeyup="setLoginPassword(event)"/>
         <div class="cut cut-short"></div>
         <label for="contactnumber" class="placeholder">Password
       </div>
       <button type="text" class="submit">Log In</button>
+      <a href="index.html" class="submit">Dont have an account</a>
+
   </div>
   </form>
   </div>
