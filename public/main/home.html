@@ -10,6 +10,7 @@
   <meta name="theme-color" content="#000000">
   <link href="../src/Home.css" rel="stylesheet">
   <script src="./transactions.js" defer></script>
+  <script src="./home.js" defer></script>
 </head>
 
 <body>
@@ -34,7 +35,8 @@
     <div class="transaction">
       <h3>History</h3>
       <ul class="list__container">
-        <div id="postview">
+        <div id="postsview" >
+
 
         </div>
       </ul>
@@ -47,9 +49,10 @@
         <div class="form-control"><label for="amount">Amount<br>(negative-expense, positive-income)</label><input
             type="number" placeholder="Enter the amount" required="" value="0" onchange="transactionAmount(event)">
         </div>
-        <button type="submit" class="add-trans__btn">Add Transaction</button>
+        <button type="submit" class="add-trans__btn" onclick="showListOfPosts()">Add Transaction</button>
       </form>
     </div>
+    <button type="submit" class="logout-button" onclick="logout()">logout</button>
   </div>
   <footer>
     <a href="expenses.html"><img
