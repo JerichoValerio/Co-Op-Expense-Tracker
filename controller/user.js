@@ -1,7 +1,6 @@
 const User = require("../model/user");
 const bcrypt = require("bcryptjs"); // This library/package will be used to encrypt the password
 const jwt = require("jsonwebtoken"); // This Library will help us give and verify access tokens
-const { db } = require("../model/user");
 
 
 const registerUser = async (request, response) => {

@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
 const PostSchema = mongoose.Schema({
-  typeOfExpense: {
+  expenseOrIncome: {
     type: String,
     required: true
   },
   amount: {
     type: Number,
-    required: true
+    required: [true, "Please enter a positive or negative number"]
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
