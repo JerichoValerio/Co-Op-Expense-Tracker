@@ -16,7 +16,7 @@ const createPost = async (request, response) => {
 
         if (findUser) {
             const newPost = new Post({
-                typeOfExpense: data.typeOfExpense,
+                expenseOrIncome: data.expenseOrIncome,
                 amount: data.amount,
                 user: findUser._id
             })
@@ -51,7 +51,7 @@ const createPost = async (request, response) => {
 const getAllPosts = async (request, response) => {
     try {
         const data = await Post.find().populate({
-            path: "user"       
+            path: "user"
         });
 
         return response.status(200).json({

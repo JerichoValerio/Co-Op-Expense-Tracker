@@ -9,6 +9,7 @@
   <meta charset="utf-8">
   <meta name="theme-color" content="#000000">
   <link href="../src/Home.css" rel="stylesheet">
+  <script src="./transactions.js" defer></script>
 </head>
 
 <body>
@@ -46,11 +47,12 @@
     </div>
     <div class="add-trans">
       <h3>Add New Transaction</h3>
-      <form onsubmit="submitExpense(event)">
+      <form onsubmit="submitTransaction(event)">
         <div class="form-control"><label for="text">Text</label><input type="text" placeholder="Enter the detail..."
-            required="" value="" onchange="typeOfExpense(event)"></div>
+            required="" value="" onchange="transactionName(event)"></div>
         <div class="form-control"><label for="amount">Amount<br>(negative-expense, positive-income)</label><input
-            type="number" placeholder="Enter the amount" required="" value="0" onchange="amount(event)"></div>
+            type="number" placeholder="Enter the amount" required="" value="0" onchange="transactionAmount(event)">
+        </div>
         <button type="submit" class="add-trans__btn">Add Transaction</button>
       </form>
     </div>
