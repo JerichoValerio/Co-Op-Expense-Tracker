@@ -120,6 +120,7 @@ body {
   outline: 0;
   text-align: center;
   width: 100%;
+  text-decoration: none;
 }
 
 .submit:active {

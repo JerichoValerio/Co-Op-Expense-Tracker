@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login to your COSTREME account</title>
   <script src="login.js"> </script>
-  <link rel="stylesheet" href="../src/login.css">
+  <link rel="stylesheet" href="./src/login.css">
 </head>
 
 <body>
@@ -17,19 +17,24 @@
     <div class="subtitle">Welcome!</div>
 
     <form onsubmit="submitUserLoginForm(event)">
-      
+
       <div class="input-container ic2">
-        <input id="email" class="input" type="text" placeholder=" " onkeyup="setLoginEmail(event)"/>
+        <input id="email" class="input" type="text" placeholder=" " onkeyup="setLoginEmail(event)" />
         <div class="cut cut-short"></div>
         <label for="email" class="placeholder">Email *
       </div>
       <div class="input-container ic2">
-        <input id="contactnumber" class="input" type="text" placeholder=" " onkeyup="setLoginPassword(event)"/>
+        <input id="contactnumber" class="input" type="text" placeholder=" " onkeyup="setLoginPassword(event)" />
         <div class="cut cut-short"></div>
         <label for="contactnumber" class="placeholder">Password
       </div>
       <button type="text" class="submit">Log In</button>
-      <a href="index.html" class="submit">Dont have an account</a>
+      <br>
+      <div class="input-container ic2">
+        <button type="text" class="submit"><a href="index.html" class="submit">Don't have a COSTREME
+            account?</button></a>
+      </div>
+
 
   </div>
   </form>
