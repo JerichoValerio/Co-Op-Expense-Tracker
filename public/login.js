@@ -2,6 +2,13 @@
 let user = {};
 let baseUrl = "/api/v1";
 
+(function isAlreadyLoggedIN() {
+    let accessToken = JSON.parse(localStorage.getItem("acess-token"));
+
+    if (accessToken) {
+        window.location.href = "/home.html";
+    }
+})();
 
 const setLoginEmail = (event) => {
     user.email = event.target.value;
@@ -18,7 +25,7 @@ const submitUserLoginForm = async (event) => {
     // We will call the API for our own backend Here!
 
     try {
-       const response = await fetch(`${baseUrl}/users/login`, {
+        const response = await fetch(`${baseUrl}/users/login`, {
             method: "post",
             body: JSON.stringify(user),
             headers: {
@@ -28,13 +35,18 @@ const submitUserLoginForm = async (event) => {
 
         const finalIncomingResponse = await response.json();
 
+        // We have to fix this 
         if (finalIncomingResponse.accessToken) {
-            
-            window.location.href = "/main/home.html";
+            // This is for saving user object in the browser storage
+            localStorage.setItem("user", JSON.stringify(finalIncomingResponse.data));
+
+            // This is for storing access token in the browser storage
+            localStorage.setItem("acess-token", JSON.stringify(finalIncomingResponse.accessToken));
+            window.location.href = "/home.html";
         } else {
             alert(finalIncomingResponse.message);
         }
-    } catch(error) {
+    } catch (error) {
         console.log(error);
     }
 
