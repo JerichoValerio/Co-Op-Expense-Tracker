@@ -4,12 +4,11 @@ const router = express.Router();
 
 // Here we are using destructuring
 const { registerUser, loginUser, getAllUsers, deleteUser, deletePost } = require("../controller/user");
+const validateToken = require("../middleware/validate");
 
 // router.get("/", userController.getAllUsers)
 
-router.get("/", getAllUsers);
-
-
+router.get("/", validateToken, getAllUsers);
 
 // Registering
 router.post("/register", registerUser) //endpoint, function that has an API
