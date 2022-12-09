@@ -10,8 +10,6 @@ const validateToken = require("../middleware/validate");
 
 router.get("/", validateToken, getAllUsers);
 
-
-
 // Registering
 router.post("/register", registerUser) //endpoint, function that has an API
 
