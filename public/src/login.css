@@ -1,14 +1,14 @@
 body {
   align-items: center;
   background-position: center;
-  background-image: url("https://www.droptica.com/sites/droptica.com/files/styles/responsive_image_2000/public/media/image/designux_1.png?itok=o6s-tKgR");
+  background-image: url("https://scontent-sea1-1.xx.fbcdn.net/v/t39.30808-6/306330545_462649962546292_6638615192265723404_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=e3f864&_nc_ohc=9T2GMBcsuFoAX_mjHhI&_nc_oc=AQm6BA1IDlbofL5jhMgZPHK9sOr9YLvJIhOwuyCqpqe2ONM4DRRMIYZrmpflgS51Yio&_nc_ht=scontent-sea1-1.xx&oh=00_AfD7OS2p6rC3VEYUR0-jzaRIvnHXou1Vs1KmZQjuyJnNqg&oe=6399812D");
   display: flex;
   justify-content: center;
   height: 100vh;
 }
 
 .form {
-  background-color: #030f55c0;
+  background-color: #f2593ebe;
   border-radius: 20px;
   box-sizing: border-box;
   height: 500px;
@@ -100,15 +100,15 @@ body {
 }
 
 .input:not(:placeholder-shown)~.placeholder {
-  color: #EFD033;
+  color: #efd033c9;
 }
 
 .input:focus~.placeholder {
-  color: #EFD033;
+  color: #efd033c9;
 }
 
 .submit {
-  background-color: #EFD033;
+  background-color: #efd033e3;
   border-radius: 12px;
   border: 0;
   box-sizing: border-box;
@@ -120,8 +120,9 @@ body {
   outline: 0;
   text-align: center;
   width: 100%;
+  text-decoration: none;
 }
 
 .submit:active {
-  background-color: #ff00fa;
+  background-color: #135DD8;
 }
