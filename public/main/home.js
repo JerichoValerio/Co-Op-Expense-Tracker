@@ -14,6 +14,8 @@ const showListOfPosts = async () => {
 
   const getPostView = document.querySelector("#postsview");
 
+  getPostView.innerHTML = "";
+
 
   // for (let i = 0 ; i < finalOutput.data.length; i++) {
 
@@ -34,16 +36,16 @@ const showListOfPosts = async () => {
 
   // }
 
-  var tblBody = document.createElement("tbody");
+  let tblBody = document.createElement("tbody");
   // creates a <tbody> element
-  for (var i = 0; i < finalOutput.data.length; i++) {
+  for (let i = 0; i < finalOutput.data.length; i++) {
     // creates a table row
-    var row = document.createElement("tr");
-    for (var prop in finalOutput.data[i]) {
+    let row = document.createElement("tr");
+    for (let prop in finalOutput.data[i]) {
       // Create a <td> element and a text node, make the text
       // node the contents of the <td>, and put the <td> at
       // the end of the table row
-      var cell = document.createElement("td");
+      let cell = document.createElement("td");
       if (prop === "expenseOrIncome" || prop === "amount") {
         var cellText = document.createTextNode(finalOutput.data[i][prop]);
         cell.appendChild(cellText);
@@ -57,6 +59,36 @@ const showListOfPosts = async () => {
   // add the table body to the table
   getPostView.appendChild(tblBody);
 
+
+}
+
+const showIncome = async () => {
+  const response = await fetch(`${baseUrl}/posts`);
+  const finalOutput = await response.json();
+
+  const getIncome = document.querySelector(".inc__container");
+
+  let income = 0;
+
+  for (let i = 0; i < finalOutput.data.length; i++) {
+    for (let value in finalOutput.data[i]) {
+      if (value === "amount") {
+        if (finalOutput.data[i][value] > 0) {
+          income += finalOutput.data[i][value];
+        }
+      }
+    }
+  }
+
+  const incomeDisplay = document.createElement("p");
+  incomeDisplay.classList.add("inc__money");
+  const incomeText = document.createTextNode(income);
+  incomeDisplay.appendChild(incomeText);
+
+
+  getIncome.appendChild(incomeDisplay);
+
+  console.log(income);
 
 }
 
