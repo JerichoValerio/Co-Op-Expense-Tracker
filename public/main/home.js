@@ -38,7 +38,7 @@ const showListOfPosts = async () => {
 
   let tblBody = document.createElement("tbody");
   // creates a <tbody> element
-  for (let i = 0; i < finalOutput.data.length; i++) {
+  for (let i = finalOutput.data.length - 1; i > 0; i--) {
     // creates a table row
     let row = document.createElement("tr");
     for (let prop in finalOutput.data[i]) {
@@ -82,6 +82,9 @@ const showIncome = async () => {
 
   const incomeDisplay = document.createElement("p");
   incomeDisplay.classList.add("inc__money");
+  if (getIncome.hasChildNodes()) {
+    getIncome.removeChild(getIncome.lastElementChild);
+  }
   const incomeText = document.createTextNode(income);
   if(incomeDisplay.hasChild()){
     incomeDisplay.removeChild(incomeDisplay.childNodes[0]);
@@ -91,9 +94,39 @@ const showIncome = async () => {
   getIncome.appendChild(incomeDisplay);
  
 
-  console.log(income);
+}
+
+const showExpense = async () => {
+  const response = await fetch(`${baseUrl}/posts`);
+  const finalOutput = await response.json();
+
+  const getExpense = document.querySelector(".exp__container");
+
+  let expense = 0;
+
+  for (let i = 0; i < finalOutput.data.length; i++) {
+    for (let value in finalOutput.data[i]) {
+      if (value === "amount") {
+        if (finalOutput.data[i][value] < 0) {
+          expense += finalOutput.data[i][value];
+        }
+      }
+    }
+  }
+
+  const expenseDisplay = document.createElement("p");
+  expenseDisplay.classList.add("exp__money");
+  if (getExpense.hasChildNodes()) {
+    getExpense.removeChild(getExpense.lastElementChild);
+  }
+  const expenseText = document.createTextNode(expense);
+  expenseDisplay.appendChild(expenseText);
+
+
+  getExpense.appendChild(expenseDisplay);
 
 }
+
 
 
 

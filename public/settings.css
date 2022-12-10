@@ -2,11 +2,12 @@
 body {
   align-items: center;
   background-position: center;
-  background-image: url("https://images.template.net/115502/free-white-abstract-background-2q4au.jpg");
+  background-image: url("./pictures/vecteezy_liquid-flow-pastel-3d-neon-lava-lamp-vector-geometric-white_10527160.jpg");
   display: flex;
 	font-family: "Roboto", sans-serif;
   justify-content: center;
   height: 100vh;
+	color: #FD1D1D;
 }
 
 .shadow {
