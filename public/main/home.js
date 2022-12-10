@@ -34,16 +34,16 @@ const showListOfPosts = async () => {
 
   // }
 
-  var tblBody = document.createElement("tbody");
+  let tblBody = document.createElement("tbody");
   // creates a <tbody> element
-  for (var i = 0; i < finalOutput.data.length; i++) {
+  for (let i = 0; i < finalOutput.data.length; i++) {
     // creates a table row
-    var row = document.createElement("tr");
-    for (var prop in finalOutput.data[i]) {
+    let row = document.createElement("tr");
+    for (let prop in finalOutput.data[i]) {
       // Create a <td> element and a text node, make the text
       // node the contents of the <td>, and put the <td> at
       // the end of the table row
-      var cell = document.createElement("td");
+      let cell = document.createElement("td");
       if (prop === "expenseOrIncome" || prop === "amount") {
         var cellText = document.createTextNode(finalOutput.data[i][prop]);
         cell.appendChild(cellText);
@@ -57,6 +57,25 @@ const showListOfPosts = async () => {
   // add the table body to the table
   getPostView.appendChild(tblBody);
 
+
+}
+
+const showIncome = async () => {
+  const response = await fetch(`${baseUrl}/posts`);
+  const finalOutput = await response.json();
+
+  const getIncome = document.querySelector("#inc__money");
+
+  let income = 0;
+
+  for (let i = 0; i < finalOutput.data.length; i++) {
+    console.log(finalOutput.data[i].amount);
+    if (finalOutput.data[i].amount > 0) {
+      income += finalOutput.data[i].amount;
+    }
+  }
+
+  getIncome.appendChild(income);
 
 }
 
