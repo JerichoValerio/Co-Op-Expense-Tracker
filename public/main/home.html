@@ -23,9 +23,9 @@
       <h1 class="balance__amount">1800.00 CAD</h1>
     </div>
     <div class="inc-exp">
-      <div id="inc__container" onload="showIncome()">
+      <button type="submit" onclick="showIncome()">Show the Income</button>
+      <div id="inc__container" class="inc">
         <h4>Income</h4>
-        
       </div>
       <div class="exp__container">
         <h4>Expense</h4>
@@ -35,9 +35,7 @@
     <div class="transaction">
       <h3>History</h3>
       <ul class="list__container">
-        <div id="postsview" onload="showListOfPosts()">
-
-
+        <div id="postsview">
         </div>
       </ul>
     </div>
