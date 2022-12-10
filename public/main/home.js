@@ -14,6 +14,8 @@ const showListOfPosts = async () => {
 
   const getPostView = document.querySelector("#postsview");
 
+  getPostView.innerHTML = "";
+
 
   // for (let i = 0 ; i < finalOutput.data.length; i++) {
 
@@ -64,18 +66,29 @@ const showIncome = async () => {
   const response = await fetch(`${baseUrl}/posts`);
   const finalOutput = await response.json();
 
-  const getIncome = document.querySelector("#inc__money");
+  const getIncome = document.querySelector(".inc__container");
 
   let income = 0;
 
   for (let i = 0; i < finalOutput.data.length; i++) {
-    console.log(finalOutput.data[i].amount);
-    if (finalOutput.data[i].amount > 0) {
-      income += finalOutput.data[i].amount;
+    for (let value in finalOutput.data[i]) {
+      if (value === "amount") {
+        if (finalOutput.data[i][value] > 0) {
+          income += finalOutput.data[i][value];
+        }
+      }
     }
   }
 
-  getIncome.appendChild(income);
+  const incomeDisplay = document.createElement("p");
+  incomeDisplay.classList.add("inc__money");
+  const incomeText = document.createTextNode(income);
+  incomeDisplay.appendChild(incomeText);
+
+
+  getIncome.appendChild(incomeDisplay);
+
+  console.log(income);
 
 }
 
