@@ -47,7 +47,7 @@ const showListOfPosts = async () => {
       // the end of the table row
       let cell = document.createElement("td");
       if (prop === "expenseOrIncome" || prop === "amount") {
-        var cellText = document.createTextNode(finalOutput.data[i][prop]);
+        let cellText = document.createTextNode(finalOutput.data[i][prop]);
         cell.appendChild(cellText);
         row.appendChild(cell);
       }
@@ -66,7 +66,7 @@ const showIncome = async () => {
   const response = await fetch(`${baseUrl}/posts`);
   const finalOutput = await response.json();
 
-  const getIncome = document.querySelector(".inc__container");
+  const getIncome = document.querySelector(".inc");
 
   let income = 0;
 
@@ -86,10 +86,13 @@ const showIncome = async () => {
     getIncome.removeChild(getIncome.lastElementChild);
   }
   const incomeText = document.createTextNode(income);
+  if(incomeDisplay.hasChild()){
+    incomeDisplay.removeChild(incomeDisplay.childNodes[0]);
+  }
+  
   incomeDisplay.appendChild(incomeText);
-
-
   getIncome.appendChild(incomeDisplay);
+ 
 
 }
 
