@@ -127,6 +127,33 @@ const deleteUser = async (request, response) => {
 
 }
 
+const updateUser = async (request, response) => {
+  const data = request.body;
+
+  // We are hashing/encrypting password based the data.password string and the salt value 10 which is the utmost encryption
+  const encryptPassword = await bcrypt.hash(data.password, 10);
+
+  const updatedUser = User({
+    name: data.name,
+    email: data.email,
+    password: encryptPassword
+  })
+
+  try {
+    const output = await updatedUser.save();
+    return response.status(201).json({
+      message: "Succesfully Updated User",
+      data: output
+    })
+  } catch (error) {
+    return response.status(500).json({
+      message: "There was an error",
+      error
+    })
+  }
+
+}
+
 
 
 
@@ -134,5 +161,6 @@ module.exports = {
   registerUser,
   loginUser,
   getAllUsers,
-  deleteUser
+  deleteUser,
+  updateUser
 }
