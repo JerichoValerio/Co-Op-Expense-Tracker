@@ -1,0 +1,7 @@
+body {
+  background-position: center;
+  background-image: url("https://wallpaperaccess.com/full/260170.png");
+  display: flex;
+	font-family: "Roboto", sans-serif;
+  justify-content: center;
+}

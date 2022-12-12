@@ -9,11 +9,11 @@ const chartCreate = async () => {
   let xValues = [];
   let yValues = [];
   let barColors = [
-    "#b91d47",
-    "#00aba9",
-    "#2b5797",
+    "#2B3252",
+    "#EF5455",
+    "#FAD744",
     "#e8c3b9",
-    "#1e7145"
+    "#1e7145",
   ];
 
   for (let i = 0; i < finalOutput.data.length; i++) {
