@@ -33,7 +33,6 @@ const chartCreate = async () => {
 
 
   let totalExpense = 0;
-  //let singleExpense = 0;
   let percentage = 0;
   for (let i = 0; i < finalOutput.data.length; i++) {
     for (let totalValue in finalOutput.data[i]) {
@@ -47,10 +46,8 @@ const chartCreate = async () => {
     for (let value in finalOutput.data[i]) {
 
       if (value === "amount" && finalOutput.data[i][value] < 0) {
-        //singleExpense += Math.abs(finalOutput.data[i][value]);
         percentage = (Math.abs(finalOutput.data[i][value]) / totalExpense * 100).toFixed(0);
         yValues.push(percentage);
-        //singleExpense = 0;
         percentage = 0;
       }
     }
@@ -73,7 +70,7 @@ const chartCreate = async () => {
     options: {
       title: {
         display: true,
-        text: "Expneses of the current month"
+        text: "Expenses of the current month"
       }
     }
   });
