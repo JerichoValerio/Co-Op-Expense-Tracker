@@ -1,13 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
 body {
   align-items: center;
-  background-position: center;
-  background-image: url("https://images.template.net/101888/black-cloud-background-hvd0r.jpg");
+  background-image: url("https://products.ls.graphics/mesh-gradients/images/58.-Polution_1.jpg");
   display: flex;
 	font-family: "Roboto", sans-serif;
   justify-content: center;
   height: 100vh;
-	color: rgb(93, 96, 252);
+	color: rgb(176, 38, 255);
 }
 
 .shadow {
