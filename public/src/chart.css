@@ -1,0 +1,10 @@
+body {
+  align-items: center;
+  background-position: center;
+  background-image: url("https://images.template.net/101888/black-cloud-background-hvd0r.jpg");
+  display: flex;
+	font-family: "Roboto", sans-serif;
+  justify-content: center;
+  height: 100vh;
+	color: rgb(93, 96, 252);
+}
