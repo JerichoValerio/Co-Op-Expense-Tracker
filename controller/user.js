@@ -54,7 +54,8 @@ const loginUser = async (request, response) => {
 
       return response.status(200).json({
         message: "User Succesfully Logged In",
-        accessToken
+        accessToken,
+        data: foundUser
       })
     } else {
       // User password is incorrect
@@ -77,6 +78,10 @@ const loginUser = async (request, response) => {
 }
 
 const getAllUsers = async (request, response) => {
+  console.log("I am called after the middleware in server.js");
+
+  console.log(request.decodedEmail, request.decodedName);
+
   try {
     const data = await User.find();
 
