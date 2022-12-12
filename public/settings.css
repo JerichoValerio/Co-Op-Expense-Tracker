@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+
 body {
-  align-items: center;
-  background-image: url("https://products.ls.graphics/mesh-gradients/images/58.-Polution_1.jpg");
-  display: flex;
+	align-items: center;
+	background-image: url("https://products.ls.graphics/mesh-gradients/images/58.-Polution_1.jpg");
+	display: flex;
 	font-family: "Roboto", sans-serif;
-  justify-content: center;
-  height: 100vh;
+	justify-content: center;
+	height: 100vh;
 	color: rgb(176, 38, 255);
 }
 
@@ -31,6 +32,7 @@ body {
 	border-radius: 0;
 	color: #333;
 }
+
 .nav-pills a.nav-link i {
 	width: 20px;
 }
@@ -42,3 +44,6 @@ body {
 	border: 5px solid #fff;
 }
 
+#username {
+	text-align: center;
+}
