@@ -20,16 +20,19 @@
   <div class="app__calculator">
     <div class="balance">
       <h4>Your Balance</h4>
-      <h1 class="balance__amount">1800.00 CAD</h1>
+      <button type="submit" onclick="showBalance()">Show the Balance</button>
+      <div class="balance__amount">
+        <p>0</p>
+      </div>
     </div>
     <div class="inc-exp">
       <button type="submit" onclick="showIncome()">Show the Income</button>
       <!-- This tag should not be moved -->
-      <h4>Income</h4> 
+      <h4>Income</h4>
       <div class="inc__container">
         <p>0</p>
       </div>
-      <button type="submit" onclick="showExpense()">Show the Income</button>
+      <button type="submit" onclick="showExpense()">Show the Expense</button>
       <!-- This tag should not be moved -->
       <h4>Expense</h4>
       <div class="exp__container">
@@ -59,7 +62,7 @@
   </div>
   <footer>
     <a href="chart.html" class="submit">Chart</a>
-    
+
   </footer>
 </body>
 
