@@ -235,3 +235,11 @@ li {
 	letter-spacing: 2px;
 	border: none;
 }
+
+footer {
+	text-align: center;
+}
+
+#chartIcon {
+	margin-right: 50px;
+}
