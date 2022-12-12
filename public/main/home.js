@@ -16,29 +16,9 @@ const showListOfPosts = async () => {
 
   getPostView.innerHTML = "";
 
-
-  // for (let i = 0 ; i < finalOutput.data.length; i++) {
-
-  //     const div = document.createElement("div");
-  //     div.classList.add("card");
-
-  //     const h3 = document.createElement("h3");
-  //     h3.textContent = finalOutput.data[i].expenseOrIncome;
-
-  //     div.appendChild(h3);
-
-  //     const h4 = document.createElement("h4");
-  //     h4.textContent = finalOutput.data[i].amount;
-
-  //     div.appendChild(h4);
-
-  //     getPostView.appendChild(div);
-
-  // }
-
   let tblBody = document.createElement("tbody");
   // creates a <tbody> element
-  for (let i = finalOutput.data.length - 1; i > 0; i--) {
+  for (let i = finalOutput.data.length - 1; i >= 0; i--) {
     // creates a table row
     let row = document.createElement("tr");
     for (let prop in finalOutput.data[i]) {
@@ -46,8 +26,16 @@ const showListOfPosts = async () => {
       // node the contents of the <td>, and put the <td> at
       // the end of the table row
       let cell = document.createElement("td");
-      if (prop === "expenseOrIncome" || prop === "amount") {
-        var cellText = document.createTextNode(finalOutput.data[i][prop]);
+      if (prop === "_id") {
+        let button = document.createElement("button");
+        button.classList.add(finalOutput.data[i][prop]);
+        button.onclick = deleteTransaction;
+        button.innerHTML = "X";
+        cell.appendChild(button);
+        row.appendChild(cell);
+      }
+      else if (prop === "expenseOrIncome" || prop === "amount") {
+        let cellText = document.createTextNode(finalOutput.data[i][prop]);
         cell.appendChild(cellText);
         row.appendChild(cell);
       }
@@ -56,29 +44,19 @@ const showListOfPosts = async () => {
     // add the row to the end of the table body
     tblBody.appendChild(row);
   }
+
   // add the table body to the table
   getPostView.appendChild(tblBody);
 
 
 }
 
+
 const showIncome = async () => {
-  const response = await fetch(`${baseUrl}/posts`);
-  const finalOutput = await response.json();
 
   const getIncome = document.querySelector(".inc__container");
 
-  let income = 0;
-
-  for (let i = 0; i < finalOutput.data.length; i++) {
-    for (let value in finalOutput.data[i]) {
-      if (value === "amount") {
-        if (finalOutput.data[i][value] > 0) {
-          income += finalOutput.data[i][value];
-        }
-      }
-    }
-  }
+  let income = await getAmount("income");
 
   const incomeDisplay = document.createElement("p");
   incomeDisplay.classList.add("inc__money");
@@ -94,22 +72,10 @@ const showIncome = async () => {
 }
 
 const showExpense = async () => {
-  const response = await fetch(`${baseUrl}/posts`);
-  const finalOutput = await response.json();
 
   const getExpense = document.querySelector(".exp__container");
 
-  let expense = 0;
-
-  for (let i = 0; i < finalOutput.data.length; i++) {
-    for (let value in finalOutput.data[i]) {
-      if (value === "amount") {
-        if (finalOutput.data[i][value] < 0) {
-          expense += finalOutput.data[i][value];
-        }
-      }
-    }
-  }
+  let expense = await getAmount("expense");
 
   const expenseDisplay = document.createElement("p");
   expenseDisplay.classList.add("exp__money");
@@ -122,6 +88,48 @@ const showExpense = async () => {
 
   getExpense.appendChild(expenseDisplay);
 
+}
+
+const showBalance = async () => {
+
+  const getBalance = document.querySelector(".balance__amount");
+
+  let balance = await getAmount("income") + await getAmount("expense");
+
+  const expenseDisplay = document.createElement("p");
+  expenseDisplay.classList.add("balance__money");
+  if (getBalance.hasChildNodes()) {
+    getBalance.removeChild(getBalance.lastElementChild);
+  }
+  const expenseText = document.createTextNode(balance);
+  expenseDisplay.appendChild(expenseText);
+
+
+  getBalance.appendChild(expenseDisplay);
+}
+
+const getAmount = async (incomeOrExpense) => {
+  const response = await fetch(`${baseUrl}/posts`);
+  const finalOutput = await response.json();
+
+  let amount = 0;
+
+  for (let i = 0; i < finalOutput.data.length; i++) {
+    for (let value in finalOutput.data[i]) {
+      if (value === "amount" && incomeOrExpense === "income") {
+        if (finalOutput.data[i][value] > 0) {
+          amount += finalOutput.data[i][value];
+        }
+      }
+      else if (value === "amount" && incomeOrExpense === "expense") {
+        if (finalOutput.data[i][value] < 0) {
+          amount += finalOutput.data[i][value];
+        }
+      }
+    }
+  }
+
+  return amount;
 }
 
 
