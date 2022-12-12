@@ -3,7 +3,6 @@
 const chartCreate = async () => {
   let baseUrl = "/api/v1";
   const response = await fetch(`${baseUrl}/posts`);
-  //const response = await fetch("http://localhost:4000/api/v1/posts");
   const finalOutput = await response.json();
 
 
@@ -21,9 +20,13 @@ const chartCreate = async () => {
     for (let prop in finalOutput.data[i]) {
       if (prop === "expenseOrIncome") {
         xValues.push(finalOutput.data[i][prop])
-
+        
+      }
+      if (prop === "amount" && finalOutput.data[i][prop] > 0) {
+        xValues.splice(xValues.indexOf(finalOutput.data[i][prop]), 1);
       }
     }
+   
 
   }
   console.log(xValues);
@@ -38,6 +41,9 @@ const chartCreate = async () => {
         totalExpense += Math.abs(finalOutput.data[i][totalValue]);
       }
     }
+  }
+  for (let i = 0; i < finalOutput.data.length; i++) {
+
     for (let value in finalOutput.data[i]) {
 
       if (value === "amount" && finalOutput.data[i][value] < 0) {
@@ -49,6 +55,7 @@ const chartCreate = async () => {
       }
     }
   }
+
 
 
   console.log(yValues);
