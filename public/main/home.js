@@ -21,23 +21,28 @@ const showListOfPosts = async () => {
   for (let i = finalOutput.data.length - 1; i >= 0; i--) {
     // creates a table row
     let row = document.createElement("tr");
-    for (let prop in finalOutput.data[i]) {
-      // Create a <td> element and a text node, make the text
-      // node the contents of the <td>, and put the <td> at
-      // the end of the table row
-      let cell = document.createElement("td");
-      if (prop === "_id") {
-        let button = document.createElement("button");
-        button.classList.add(finalOutput.data[i][prop]);
-        button.onclick = deleteTransaction;
-        button.innerHTML = "X";
-        cell.appendChild(button);
-        row.appendChild(cell);
-      }
-      else if (prop === "expenseOrIncome" || prop === "amount") {
-        let cellText = document.createTextNode(finalOutput.data[i][prop]);
-        cell.appendChild(cellText);
-        row.appendChild(cell);
+
+    const userID = JSON.parse(localStorage.getItem("user"));
+
+    if (finalOutput.data[i].user._id === userID._id) {
+      for (let prop in finalOutput.data[i]) {
+        // Create a <td> element and a text node, make the text
+        // node the contents of the <td>, and put the <td> at
+        // the end of the table row
+        let cell = document.createElement("td");
+        if (prop === "_id") {
+          let button = document.createElement("button");
+          button.classList.add(finalOutput.data[i][prop]);
+          button.onclick = deleteTransaction;
+          button.innerHTML = "X";
+          cell.appendChild(button);
+          row.appendChild(cell);
+        }
+        else if (prop === "expenseOrIncome" || prop === "amount") {
+          let cellText = document.createTextNode(finalOutput.data[i][prop]);
+          cell.appendChild(cellText);
+          row.appendChild(cell);
+        }
       }
     }
 
@@ -115,15 +120,18 @@ const getAmount = async (incomeOrExpense) => {
   let amount = 0;
 
   for (let i = 0; i < finalOutput.data.length; i++) {
-    for (let value in finalOutput.data[i]) {
-      if (value === "amount" && incomeOrExpense === "income") {
-        if (finalOutput.data[i][value] > 0) {
-          amount += finalOutput.data[i][value];
+    const userID = JSON.parse(localStorage.getItem("user"));
+    if (finalOutput.data[i].user._id === userID._id) {
+      for (let value in finalOutput.data[i]) {
+        if (value === "amount" && incomeOrExpense === "income") {
+          if (finalOutput.data[i][value] > 0) {
+            amount += finalOutput.data[i][value];
+          }
         }
-      }
-      else if (value === "amount" && incomeOrExpense === "expense") {
-        if (finalOutput.data[i][value] < 0) {
-          amount += finalOutput.data[i][value];
+        else if (value === "amount" && incomeOrExpense === "expense") {
+          if (finalOutput.data[i][value] < 0) {
+            amount += finalOutput.data[i][value];
+          }
         }
       }
     }
