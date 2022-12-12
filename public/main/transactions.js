@@ -30,3 +30,21 @@ const submitTransaction = async (event) => {
   }
 }
 
+const deleteTransaction = async (event) => {
+
+  event.preventDefault();
+
+  try {
+    const resposne = await fetch(`${baseUrl}/posts/${event.target.className}`, {
+      method: "delete",
+      body: JSON.stringify(newTransaction),
+      headers: {
+        'Content-Type': 'application.json',
+        'Authorization': `Bearer ${JSON.parse(localStorage.getItem('acess-token'))}`
+      }
+    })
+  } catch (error) {
+    console.log(error);
+  }
+}
+
