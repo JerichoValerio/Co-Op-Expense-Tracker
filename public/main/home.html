@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>COSTREME</title>
+  <title>𝘾𝙊$𝙏𝙍𝙀𝙈𝙀</title>
   <meta charset="utf-8">
   <meta name="theme-color" content="#000000">
   <link href="../src/Home.css" rel="stylesheet">
@@ -20,19 +20,20 @@
   <div class="app__calculator">
     <div class="balance">
       <h4>Your Balance</h4>
-      <button type="submit" onclick="showBalance()">Show the Balance</button>
+      <button id="chartIcon" type="submit" onclick="showBalance()">𝗗𝗶𝘀𝗽𝗹𝗮𝘆 𝗕𝗮𝗹𝗮𝗻𝗰𝗲</button>
       <div class="balance__amount">
         <p>0</p>
       </div>
     </div>
     <div class="inc-exp">
-      <button type="submit" onclick="showIncome()">Show the Income</button>
+      <button id="chartIcon" type="submit" onclick="showIncome()">
+        𝗗𝗶𝘀𝗽𝗹𝗮𝘆 𝗜𝗻𝗰𝗼𝗺𝗲</button>
       <!-- This tag should not be moved -->
       <h4>Income</h4>
       <div class="inc__container">
         <p>0</p>
       </div>
-      <button type="submit" onclick="showExpense()">Show the Expense</button>
+      <button id="chartIcon" type="submit" onclick="showExpense()">𝗗𝗶𝘀𝗽𝗹𝗮𝘆 𝗘𝘅𝗽𝗲𝗻𝘀𝗲𝘀</button>
       <!-- This tag should not be moved -->
       <h4>Expense</h4>
       <div class="exp__container">
@@ -41,7 +42,7 @@
     </div>
     <div class="transaction">
       <h3>History</h3>
-      <button type="submit" onclick="showListOfPosts()">Show the History</button>
+      <button id="chartIcon" type="submit" onclick="showListOfPosts()">𝗗𝗶𝘀𝗽𝗹𝗮𝘆 𝗘𝘅𝗽𝗲𝗻𝘀𝗲 𝗛𝗶𝘀𝘁𝗼𝗿𝘆</button>
       <ul class="list__container">
         <div id="postsview">
         </div>
@@ -55,10 +56,10 @@
         <div class="form-control"><label for="amount">Amount<br>(negative-expense, positive-income)</label><input
             type="number" placeholder="Enter the amount" required="" value="0" onchange="transactionAmount(event)">
         </div>
-        <button type="submit" class="add-trans__btn" onclick="showListOfPosts()">Add Transaction</button>
+        <button id="chartIcon" type="submit" class="add-trans__btn" onclick="showListOfPosts()">Add Transaction</button>
       </form>
     </div>
-    <button type="submit" class="logout-button" onclick="logout()">logout</button>
+    <button id="chartIcon" type="submit" class="logout-button" onclick="logout()">ᒪOGOᑌT</button>
 
   </div>
   <footer>

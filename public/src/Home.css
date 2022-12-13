@@ -241,9 +241,26 @@ footer {
   background-position: center;
   display: flex;
   justify-content: center;
-  height: 15vh;
+  height: 8vh;
 }
 
 #chartIcon {
 	margin-right: 50px;
+}
+
+button {
+	background-color:  #ffc40086;
+	border: none;
+	color: white;
+	padding: 15px 30px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 15px;
+	margin: 2px 2px;
+	cursor: pointer;
+}
+
+#chartIcon {
+	margin-right: 20px;
 }
