@@ -156,10 +156,7 @@ const updateUser = async (request, response) => {
 const updatePassword = async (request, response) => {
   const data = request.body;
 
-  const userData = localStorage.getItem("user");
-
   console.log(data);
-  console.log(userData.password);
   console.log(await bcrypt.hash(data.currentPassword, 10));
 
   const userID = request.params.id;
