@@ -130,15 +130,15 @@ const deleteUser = async (request, response) => {
 const updateUser = async (request, response) => {
   const data = request.body;
 
+  console.log(data);
+
   const userID = request.params.id;
 
-  const encryptPassword = await bcrypt.hash(data.password, 10);
 
   try {
     await User.findByIdAndUpdate(userID, {
       name: data.name,
       email: data.email,
-      password: encryptPassword
     })
 
     return response.status(201).json({
@@ -153,6 +153,40 @@ const updateUser = async (request, response) => {
 
 }
 
+const updatePassword = async (request, response) => {
+  const data = request.body;
+
+  const userData = localStorage.getItem("user");
+
+  console.log(data);
+  console.log(userData.password);
+  console.log(await bcrypt.hash(data.currentPassword, 10));
+
+  const userID = request.params.id;
+  let encryptPassword = "";
+
+  if (data.currentPassword !== data.newPassword && data.newPassword === data.confirmPassword) {
+    encryptPassword = await bcrypt.hash(data.newPassword, 10);
+
+    try {
+      await User.findByIdAndUpdate(userID, {
+        password: encryptPassword
+      })
+
+
+      return response.status(201).json({
+        message: "Password Updated Successfully"
+      })
+    } catch (error) {
+      return response.status(500).json({
+        message: "There was an error",
+        error
+      })
+    }
+  }
+
+
+}
 
 
 
@@ -161,5 +195,6 @@ module.exports = {
   loginUser,
   getAllUsers,
   deleteUser,
-  updateUser
+  updateUser,
+  updatePassword
 }

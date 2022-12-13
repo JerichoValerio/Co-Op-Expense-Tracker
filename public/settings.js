@@ -5,55 +5,81 @@ const showUserInfo = () => {
 
   userNameTitle.innerHTML = `Hello, ${getUser.name}`;
 
-  const userName = document.querySelector("#name");
+  // const userName = document.querySelector("#name");
 
-  userName.innerHTML = getUser.name;
+  // userName.innerHTML = getUser.name;
 
-  const userEmail = document.querySelector("#email");
-  const getEmail = JSON.parse(localStorage.getItem("user"));
+  // const userEmail = document.querySelector("#email");
+  // const getEmail = JSON.parse(localStorage.getItem("user"));
 
-  userEmail.innerHTML = getEmail.email;
+  // userEmail.innerHTML = getEmail.email;
 
 }
-
 showUserInfo();
 
+let updateUser = {};
+let baseUrl = "/api/v1";
+let updatePass = {};
+
+
 const updateName = (event) => {
-  user.name = event.target.value;
+  updateUser.name = event.target.value;
 }
 
 const updateEmail = (event) => {
-  user.email = event.target.value;
+  updateUser.email = event.target.value;
 }
 
-const updatePassword = (event) => {
-  user.password = event.target.value;
+const currentPassword = (event) => {
+  updatePass.currentPassword = event.target.value;
 }
 
-const submitUserForm = async (event) => {
+const newPassword = (event) => {
+  updatePass.newPassword = event.target.value;
+}
+
+const confirmPassword = (event) => {
+  updatePass.confirmPassword = event.target.value;
+}
+const submitUserUpdate = async (event) => {
 
   // We don't want to page to refresh because we are not using actions here!
   event.preventDefault();
-  console.log(user);
   // We will call the API for our own backend Here!
 
   try {
     const response = await fetch(`${baseUrl}/users/update`, {
       method: "put",
-      body: JSON.stringify(user),
+      body: JSON.stringify(updateUser),
       headers: {
         'Content-Type': 'application/json'
       },
     })
-
-    // We have to fix this 
-    if (response) {
-      window.location.href = "login.html";
-    }
+    
   } catch (error) {
     console.log(error);
   }
 
 }
 
+const submitPasswordUpdate = async (event) => {
+
+  // We don't want to page to refresh because we are not using actions here!
+  event.preventDefault();
+  // We will call the API for our own backend Here!
+
+  try {
+    const response = await fetch(`${baseUrl}/users/updatepassword`, {
+      method: "put",
+      body: JSON.stringify(updatePass),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+    
+  } catch (error) {
+    console.log(error);
+  }
+
+}
 

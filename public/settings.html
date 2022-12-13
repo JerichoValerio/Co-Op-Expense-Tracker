@@ -52,158 +52,156 @@
             </a>
           </div>
         </div>
-        <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
-          <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
-            <h3 class="mb-4">Account Settings</h3>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Name</label>
-                  <!-- <input type="text" id="name"> -->
-                  <p id="name"></p>
+        <form id="form1" onsubmit="submitUserUpdate(event)">
+          <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
+              <h3 class="mb-4">Account Settings</h3>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Name</label>
+                    <input id="name" class="input" type="text" placeholder=" " onkeyup="updateName(event)">
+                  </div>
                 </div>
-              </div>
 
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Email:</label>
-                  <p id="email"></p>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Email:</label>
+                    <input id="email" class="input" type="text" placeholder=" " onkeyup="updateEmail(event)">
+                  </div>
                 </div>
-              </div>
 
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label>Bio:</label>
-                  <textarea class="form-control"
-                    rows="4">I'm a UX leader, product designer, design thinker and human-loving optimist. I'm an established experience design leader with over a decade of experience. I oversee diverse interdisciplinary teams, fostering relationships with both designers and stakeholders to establish design practices that people want to work with and be a part of.</textarea>
-                </div>
-              </div>
-            </div>
-            <div>
-              <button class="btn btn-primary">Update</button>
-              <button class="btn btn-light">Cancel</button>
-            </div>
-          </div>
-          <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
-            <h3 class="mb-4">Password Settings</h3>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Old password</label>
-                  <input type="password" class="form-control">
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>New password</label>
-                  <input type="password" class="form-control">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Confirm new password</label>
-                  <input type="password" class="form-control">
-                </div>
-              </div>
-            </div>
-            <div>
-              <button class="btn btn-primary">Update</button>
-              <button class="btn btn-light">Cancel</button>
-            </div>
-          </div>
-          <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
-            <h3 class="mb-4">Security Settings</h3>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Login</label>
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Two-factor authentication</label>
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="recovery">
-                    <label class="form-check-label" for="recovery">
-                      Recovery
-                    </label>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Bio:</label>
+                    <textarea class="form-control"
+                      rows="4">I'm a UX leader, product designer, design thinker and human-loving optimist. I'm an established experience design leader with over a decade of experience. I oversee diverse interdisciplinary teams, fostering relationships with both designers and stakeholders to establish design practices that people want to work with and be a part of.</textarea>
                   </div>
                 </div>
               </div>
+              <div>
+                <button class="btn btn-primary">Update</button>
+              </div>
             </div>
-            <div>
-              <button class="btn btn-primary">Update</button>
-              <button class="btn btn-light">Cancel</button>
-            </div>
-          </div>
-          <div class="tab-pane fade" id="application" role="tabpanel" aria-labelledby="application-tab">
-            <h3 class="mb-4">Application Settings</h3>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="app-check">
-                    <label class="form-check-label" for="app-check"> App Trafficking
-                    </label>
+            <form id="form2" onsubmit="submitPasswordUpdate(event)">
+              <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
+                <h3 class="mb-4">Password Settings</h3>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Current password</label>
+                      <input type="text" class="form-control" id="currentPassword" onkeyup="currentPassword(event)">
+                    </div>
                   </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                    <label class="form-check-label" for="defaultCheck2">
-                      Send Analytics To COSTREME
-                    </label>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>New password</label>
+                      <input type="text" class="form-control" id="newPassword" onkeyup="newPassword(event)">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Confirm new password</label>
+                      <input type="text" class="form-control" id="confirmPassword" onkeyup="confirmPassword(event)">
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <button class="btn btn-primary">Update</button>
+                </div>
+              </div>
+            </form>
+            <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
+              <h3 class="mb-4">Security Settings</h3>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Login</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Two-factor authentication</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="recovery">
+                      <label class="form-check-label" for="recovery">
+                        Recovery
+                      </label>
+                    </div>
                   </div>
                 </div>
               </div>
+              <div>
+                <button class="btn btn-primary">Update</button>
+              </div>
             </div>
-            <div>
-              <button class="btn btn-primary">Update</button>
-              <button class="btn btn-light">Cancel</button>
+            <div class="tab-pane fade" id="application" role="tabpanel" aria-labelledby="application-tab">
+              <h3 class="mb-4">Application Settings</h3>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="app-check">
+                      <label class="form-check-label" for="app-check"> App Trafficking
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                      <label class="form-check-label" for="defaultCheck2">
+                        Send Analytics To COSTREME
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button class="btn btn-primary">Update</button>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab">
+              <h3 class="mb-4">Notification Settings</h3>
+              <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="notification1">
+                  <label class="form-check-label" for="notification1">
+                    Mobile Push Notification
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="notification2">
+                  <label class="form-check-label" for="notification2">
+                    Email Notification
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="notification3">
+                  <label class="form-check-label" for="notification3">
+                    Disable All Notification
+                  </label>
+                </div>
+              </div>
+              <div>
+                <button class="btn btn-primary">Update</button>
+              </div>
             </div>
           </div>
-          <div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab">
-            <h3 class="mb-4">Notification Settings</h3>
-            <div class="form-group">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="notification1">
-                <label class="form-check-label" for="notification1">
-                  Mobile Push Notification
-                </label>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="notification2">
-                <label class="form-check-label" for="notification2">
-                  Email Notification
-                </label>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="notification3">
-                <label class="form-check-label" for="notification3">
-                  Disable All Notification
-                </label>
-              </div>
-            </div>
-            <div>
-              <button class="btn btn-primary">Update</button>
-              <button class="btn btn-light">Cancel</button>
-            </div>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
   </section>
-  
+
   <footer>
     <a id="chartIcon" href="chart.html">
       <img src="https://img.icons8.com/ios/50/null/pie-chart.png" width="65px" height="65px" alt="">
