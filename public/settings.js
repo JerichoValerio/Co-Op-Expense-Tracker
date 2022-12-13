@@ -41,21 +41,24 @@ const newPassword = (event) => {
 const confirmPassword = (event) => {
   updatePass.confirmPassword = event.target.value;
 }
+
 const submitUserUpdate = async (event) => {
 
   // We don't want to page to refresh because we are not using actions here!
   event.preventDefault();
   // We will call the API for our own backend Here!
 
+  const user = JSON.parse(localStorage.getItem("user"));
+
   try {
-    const response = await fetch(`${baseUrl}/users/update`, {
+    const response = await fetch(`${baseUrl}/users/update/${user._id}`, {
       method: "put",
       body: JSON.stringify(updateUser),
       headers: {
         'Content-Type': 'application/json'
       },
     })
-    
+
   } catch (error) {
     console.log(error);
   }
@@ -68,15 +71,17 @@ const submitPasswordUpdate = async (event) => {
   event.preventDefault();
   // We will call the API for our own backend Here!
 
+  const user = JSON.parse(localStorage.getItem("user"));
+
   try {
-    const response = await fetch(`${baseUrl}/users/updatepassword`, {
+    const response = await fetch(`${baseUrl}/users/updatepassword/${user._id}`, {
       method: "put",
       body: JSON.stringify(updatePass),
       headers: {
         'Content-Type': 'application/json'
       },
     })
-    
+
   } catch (error) {
     console.log(error);
   }
