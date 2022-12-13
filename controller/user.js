@@ -113,7 +113,7 @@ const deleteUser = async (request, response) => {
     await User.findByIdAndDelete(id);
 
     return response.status(200).json({
-      message: "User Deleted Succesfully",
+      message: "User Deleted Successfully",
 
     })
 
@@ -127,6 +127,32 @@ const deleteUser = async (request, response) => {
 
 }
 
+const updateUser = async (request, response) => {
+  const data = request.body;
+
+  const userID = request.params.id;
+
+  const encryptPassword = await bcrypt.hash(data.password, 10);
+
+  try {
+    await User.findByIdAndUpdate(userID, {
+      name: data.name,
+      email: data.email,
+      password: encryptPassword
+    })
+
+    return response.status(204).json({
+      message: "User Updated Successfully"
+    })
+  } catch (error) {
+    return response.status(500).json({
+      message: "There was an error",
+      error
+    })
+  }
+
+}
+
 
 
 
@@ -134,5 +160,6 @@ module.exports = {
   registerUser,
   loginUser,
   getAllUsers,
-  deleteUser
+  deleteUser,
+  updateUser
 }
