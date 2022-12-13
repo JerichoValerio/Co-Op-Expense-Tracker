@@ -1,7 +1,19 @@
 body {
   background-position: center;
   background-image: url("https://wallpaperaccess.com/full/260170.png");
-  display: flex;
 	font-family: "Roboto", sans-serif;
   justify-content: center;
+}
+
+
+footer {
+	align-items: flex-end;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  height: 55vh;
+}
+
+#chartIcon {
+	margin-right: 50px;
 }

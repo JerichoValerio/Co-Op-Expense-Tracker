@@ -1,12 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
 
 body {
-	align-items: center;
 	background-image: url("https://products.ls.graphics/mesh-gradients/images/58.-Polution_1.jpg");
-	display: flex;
 	font-family: "Roboto", sans-serif;
 	justify-content: center;
-	height: 100vh;
 	color: rgb(176, 38, 255);
 }
 
@@ -46,4 +43,17 @@ body {
 
 #username {
 	text-align: center;
+}
+
+
+footer {
+	align-items: flex-end;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  height: 15vh;
+}
+
+#chartIcon {
+	margin-right: 50px;
 }
