@@ -47,15 +47,17 @@ const submitUserUpdate = async (event) => {
   event.preventDefault();
   // We will call the API for our own backend Here!
 
+  const user = JSON.parse(localStorage.getItem("user"));
+
   try {
-    const response = await fetch(`${baseUrl}/users/update`, {
+    const response = await fetch(`${baseUrl}/users/update/${user._id}`, {
       method: "put",
       body: JSON.stringify(updateUser),
       headers: {
         'Content-Type': 'application/json'
       },
     })
-    
+
   } catch (error) {
     console.log(error);
   }
@@ -78,7 +80,7 @@ const submitPasswordUpdate = async (event) => {
         'Content-Type': 'application/json'
       },
     })
-    
+
   } catch (error) {
     console.log(error);
   }
