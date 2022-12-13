@@ -18,6 +18,7 @@ router.post("/login", loginUser) //endpoint, function that has an API
 router.delete('/delete/:id', deleteUser)
 
 router.put("/update/:id", updateUser)
+
 router.put("/updatepassword/:id", updatePassword)
 
 
