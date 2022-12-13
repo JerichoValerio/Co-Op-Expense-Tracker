@@ -3,7 +3,7 @@ const router = express.Router();
 
 
 // Here we are using destructuring
-const { registerUser, loginUser, getAllUsers, deleteUser, updateUser } = require("../controller/user");
+const { registerUser, loginUser, getAllUsers, deleteUser, updateUser, updatePassword } = require("../controller/user");
 const validateToken = require("../middleware/validate");
 
 // router.get("/", userController.getAllUsers)
@@ -19,6 +19,7 @@ router.post("/login", loginUser) //endpoint, function that has an API
 router.delete('/delete/:id', deleteUser)
 
 router.put("/update/:id", updateUser)
+router.put("/updatepassword/:id", updatePassword)
 
 
 // router.get("/:id", userController.getUserById)
