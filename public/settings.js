@@ -41,6 +41,7 @@ const newPassword = (event) => {
 const confirmPassword = (event) => {
   updatePass.confirmPassword = event.target.value;
 }
+
 const submitUserUpdate = async (event) => {
 
   // We don't want to page to refresh because we are not using actions here!
