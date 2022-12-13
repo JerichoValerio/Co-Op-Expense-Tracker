@@ -22,9 +22,7 @@ mongoose.connect(process.env.MONGO_URI, (error) => {
   }
 })
 
-// app.get('/', (req, res) => {
-//   return res.send("Endpoints are here!");
-// })
+
 
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/posts', postRoute);
