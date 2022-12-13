@@ -113,7 +113,7 @@ const deleteUser = async (request, response) => {
     await User.findByIdAndDelete(id);
 
     return response.status(200).json({
-      message: "User Deleted Succesfully",
+      message: "User Deleted Successfully",
 
     })
 
@@ -130,20 +130,19 @@ const deleteUser = async (request, response) => {
 const updateUser = async (request, response) => {
   const data = request.body;
 
-  // We are hashing/encrypting password based the data.password string and the salt value 10 which is the utmost encryption
+  const userID = request.params.id;
+
   const encryptPassword = await bcrypt.hash(data.password, 10);
 
-  const updatedUser = User({
-    name: data.name,
-    email: data.email,
-    password: encryptPassword
-  })
-
   try {
-    const output = await updatedUser.save();
-    return response.status(201).json({
-      message: "Succesfully Updated User",
-      data: output
+    await User.findByIdAndUpdate(userID, {
+      name: data.name,
+      email: data.email,
+      password: encryptPassword
+    })
+
+    return response.status(204).json({
+      message: "User Updated Successfully"
     })
   } catch (error) {
     return response.status(500).json({
