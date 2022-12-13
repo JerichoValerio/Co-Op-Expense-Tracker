@@ -1,6 +1,7 @@
 body {
+  text-align: center;
   background-position: center;
-  background-image: url("https://wallpaperaccess.com/full/260170.png");
+  background-image: url("https://img.freepik.com/free-vector/white-abstract-background_23-2148808256.jpg?w=2000");
 	font-family: "Roboto", sans-serif;
   justify-content: center;
 }
@@ -11,9 +12,20 @@ footer {
   background-position: center;
   display: flex;
   justify-content: center;
-  height: 55vh;
+  height: 28vh;
 }
 
 #chartIcon {
 	margin-right: 50px;
+}
+
+.app__header {
+	flex: 0.05;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 45px 0px;
+	background-color: #00ff00c5;
+
+	border-bottom: 1px solid lightgrey;
 }
