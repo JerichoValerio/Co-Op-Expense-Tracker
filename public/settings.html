@@ -83,34 +83,36 @@
                 <button class="btn btn-primary">Update</button>
               </div>
             </div>
-            <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
-              <h3 class="mb-4">Password Settings</h3>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label>Current password</label>
-                    <input type="text" class="form-control" id="currentPassword" onkeyup="currentPassword(event)">
+            <form id="form2" onsubmit="submitPasswordUpdate(event)">
+              <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
+                <h3 class="mb-4">Password Settings</h3>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Current password</label>
+                      <input type="text" class="form-control" id="currentPassword" onkeyup="currentPassword(event)">
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label>New password</label>
-                    <input type="text" class="form-control" id="newPassword" onkeyup="newPassword(event)">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>New password</label>
+                      <input type="text" class="form-control" id="newPassword" onkeyup="newPassword(event)">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Confirm new password</label>
+                      <input type="text" class="form-control" id="confirmPassword" onkeyup="confirmPassword(event)">
+                    </div>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label>Confirm new password</label>
-                    <input type="text" class="form-control" id="confirmPassword" onkeyup="confirmPassword(event)">
-                  </div>
+                <div>
+                  <button class="btn btn-primary">Update</button>
                 </div>
               </div>
-              <div>
-                <button class="btn btn-primary">Update</button>
-              </div>
-            </div>
+            </form>
             <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
               <h3 class="mb-4">Security Settings</h3>
               <div class="row">
