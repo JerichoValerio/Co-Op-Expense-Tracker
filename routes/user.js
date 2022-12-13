@@ -6,7 +6,6 @@ const router = express.Router();
 const { registerUser, loginUser, getAllUsers, deleteUser, updateUser, updatePassword } = require("../controller/user");
 const validateToken = require("../middleware/validate");
 
-// router.get("/", userController.getAllUsers)
 
 router.get("/", validateToken, getAllUsers);
 
@@ -21,11 +20,5 @@ router.delete('/delete/:id', deleteUser)
 router.put("/update/:id", updateUser)
 router.put("/updatepassword/:id", updatePassword)
 
-
-// router.get("/:id", userController.getUserById)
-
-// router.put("/:id", userController.updateUser)
-
-// router.delete(":/id", userController.deletUser);
 
 module.exports = router;

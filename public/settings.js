@@ -46,9 +46,9 @@ const submitUserUpdate = async (event) => {
   // We don't want to page to refresh because we are not using actions here!
   event.preventDefault();
   // We will call the API for our own backend Here!
-
+  
   try {
-    const response = await fetch(`${baseUrl}/users/update`, {
+    const response = await fetch(`${baseUrl}/users/update/${}`, {
       method: "put",
       body: JSON.stringify(updateUser),
       headers: {
