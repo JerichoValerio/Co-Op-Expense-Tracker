@@ -237,7 +237,11 @@ li {
 }
 
 footer {
-	text-align: center;
+	align-items: flex-end;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  height: 15vh;
 }
 
 #chartIcon {
