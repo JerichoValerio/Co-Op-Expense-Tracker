@@ -141,7 +141,7 @@ const updateUser = async (request, response) => {
       password: encryptPassword
     })
 
-    return response.status(204).json({
+    return response.status(201).json({
       message: "User Updated Successfully"
     })
   } catch (error) {

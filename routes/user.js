@@ -16,9 +16,9 @@ router.post("/register", registerUser) //endpoint, function that has an API
 // // Login
 router.post("/login", loginUser) //endpoint, function that has an API
 
-router.delete('/:id', deleteUser)
+router.delete('/delete/:id', deleteUser)
 
-router.put("/update", updateUser)
+router.put("/update/:id", updateUser)
 
 
 // router.get("/:id", userController.getUserById)
